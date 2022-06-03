@@ -29,6 +29,7 @@ margin: auto;
 opacity: 0.5;
 z-index: 2;
 `
+
 const Wrapper = styled.div`
     height: 100%;
     display: flex;
@@ -77,7 +78,7 @@ function Slider() {
 
     const [slideIndex, setSlideIndex] = useState(0);
     const handleClick = (direction) => {
-        if(direction == "left") {
+        if(direction === "left") {
             setSlideIndex(slideIndex > 0 ? slideIndex - 1 : 2 );
         } else {
             setSlideIndex(slideIndex < 2 ? slideIndex +1 : 0 );
@@ -91,7 +92,7 @@ function Slider() {
         </Arrow>
         <Wrapper slideIndex={ slideIndex }>
             {sliderItems.map((item) => (
-            <Slide bg={item.bg}>
+            <Slide bg={item.bg} key={item.id}>
             <ImgContainer>
                 <Image src= {item.img} />
             </ImgContainer>
